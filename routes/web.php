@@ -6,7 +6,7 @@ use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
-    return redirect()->route('auth.login');
+    abort(404);
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
