@@ -31,13 +31,27 @@ class Table extends Component
     {
         if ($this->data[$date][$room] !== '') {
 
-            Booking::create([
-                'content'   => $this->data[$date][$room],
-                'date'      => $date,
-                'room'      => $room
-            ]);
-            
-            $this->dispatch('success', 'Data untuk Kamar ' . $room . ' Tanggal ' . $date . ' berhasil di Simpan');
+            $booking = Booking::where('date', $date)->where('room', $room)->first();
+
+            if (!$booking) {
+
+                Booking::create([
+                    'content'   => $this->data[$date][$room],
+                    'date'      => $date,
+                    'room'      => $room
+                ]);
+                
+                $this->dispatch('success', 'Data untuk Kamar ' . $room . ' Tanggal ' . $date . ' berhasil di Simpan');
+
+            } else {
+                $booking->update([
+                    'content'   => $this->data[$date][$room],
+                    'date'      => $date,
+                    'room'      => $room
+                ]);
+                
+                $this->dispatch('success', 'Data untuk Kamar ' . $room . ' Tanggal ' . $date . ' berhasil di Simpan');
+            }           
 
         } else {
 
