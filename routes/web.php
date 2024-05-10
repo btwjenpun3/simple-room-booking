@@ -6,7 +6,11 @@ use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function() {
-    abort(404);
+    if (auth()->check()) {
+        return redirect()->route('booking.index', ['type' => 'C']);
+    } else {
+        return redirect()->route('auth.login');
+    }
 });
 
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');

@@ -1,12 +1,12 @@
 <div>
     <div class="card">
-        <div class="table-responsive">
+        <div class="table-respsonsive">
             <table class="table table-sm table-vcenter table-hover table-bordered card-table">
-                <thead>
+                <thead class="sticky-table">
                     <tr>
                         <th class="fs-3"></th>
                         @foreach ($rooms as $room)
-                            <th class="fs-3 text-center">{{ $room }}</th>
+                            <th class="fs-3 text-center" style="background-color:antiquewhite">{{ $room }}</th>
                         @endforeach
                     </tr>
                 </thead>
