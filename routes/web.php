@@ -5,6 +5,10 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function() {
+    return redirect()->route('auth.login');
+});
+
 Route::get('/login', [AuthController::class, 'login'])->name('auth.login')->middleware('guest');
 
 Route::get('/rooms', [RoomController::class, 'index'])->name('room.index')->middleware('auth');
