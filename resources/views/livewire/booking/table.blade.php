@@ -16,16 +16,53 @@
                             <td>{{ $i }}</td>
                             @foreach ($rooms as $room)
                                 <td>
-                                    <input type="text" wire:model="data.{{ $i }}.{{ $room }}"
-                                        wire:change="update({{ $i }}, '{{ $room }}')"
-                                        @if (isset($data[$i][$room])) style="background-color:green;color:white" @endif
-                                        placeholder="{{ $room }} Tanggal {{ $i }}">
+                                    <div class="d-flex justify-content-between">
+                                        <input type="text" wire:model="data.{{ $i }}.{{ $room }}"
+                                            wire:change="update({{ $i }}, '{{ $room }}')"
+                                            @if (isset($data[$i][$room])) style="background-color:green;color:white" @endif
+                                            placeholder="{{ $room }} Tanggal {{ $i }}">
+                                        @if (isset($data[$i][$room]))
+                                            <button class="btn btn-icon"
+                                                wire:click="deleteConfirm({{ $i }}, '{{ $room }}')"
+                                                data-bs-toggle="modal" data-bs-target='#delete-modal'>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="#f50505" stroke-width="2"
+                                                    stroke-linecap="round" stroke-linejoin="round"
+                                                    class="icon icon-tabler icons-tabler-outline icon-tabler-xbox-x">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path
+                                                        d="M12 21a9 9 0 0 0 9 -9a9 9 0 0 0 -9 -9a9 9 0 0 0 -9 9a9 9 0 0 0 9 9z" />
+                                                    <path d="M9 8l6 8" />
+                                                    <path d="M15 8l-6 8" />
+                                                </svg>
+                                            </button>
+                                        @endif
+                                    </div>
                                 </td>
                             @endforeach
                         </tr>
                     @endfor
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="modal modal-blur fade" id="delete-modal" tabindex="-1" role="dialog" aria-hidden="true"
+        wire:ignore.self>
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="modal-title">Hapus?</div>
+                    <div>Hapus Data Booking untuk kamar {{ $deleteRoom }} tanggal {{ $deleteDate }}</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-link link-secondary me-auto"
+                        data-bs-dismiss="modal">Tidak</button>
+                    <button type="button" class="btn btn-danger" wire:click="delete" data-bs-dismiss="modal">
+                        Hapus
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 

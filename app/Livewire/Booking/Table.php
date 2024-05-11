@@ -15,6 +15,7 @@ class Table extends Component
 
     public $roomsM = ['M1', 'M2', 'M3', 'M4', 'M5', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12', 'M21', 'M22', 'M23', 'M24', 'M25', 'M26', 'M27', 'M28', 'M29', 'M30', 'M31', 'M32', 'M33', 'M34', 'M35', 'M36'];
 
+    public $deleteDate, $deleteRoom;
 
     public function mount()
     {
@@ -62,6 +63,26 @@ class Table extends Component
             $this->dispatch('error', 'Data untuk Kamar ' . $room . ' Tanggal ' . $date . ' berhasil di Hapus');
 
         }      
+    }
+
+    public function deleteConfirm($date, $room)
+    {
+
+        $this->deleteDate = $date;
+        
+        $this->deleteRoom = $room;
+
+    }
+
+    public function delete()
+    {
+
+        Booking::where('date', $this->deleteDate)->where('room', $this->deleteRoom)->delete();
+
+        unset($this->data[$this->deleteDate][$this->deleteRoom]);
+
+        $this->dispatch('error', 'Data untuk Kamar ' . $this->deleteRoom . ' Tanggal ' . $this->deleteDate . ' berhasil di Hapus');
+
     }
 
     public function render()
