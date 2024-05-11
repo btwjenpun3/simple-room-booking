@@ -13,10 +13,10 @@
                             <h2 class="h2 text-center mb-4">Masuk ke akun kamu</h2>
                             <form wire:submit="logins">
                                 <div class="mb-3">
-                                    <label class="form-label required">Email</label>
-                                    <input type="email" class="form-control @error('email') is-invalid @enderror"
-                                        placeholder="your@email.com" wire:model="email">
-                                    @error('email')
+                                    <label class="form-label required">Username</label>
+                                    <input type="text" class="form-control @error('username') is-invalid @enderror"
+                                        wire:model="username">
+                                    @error('username')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

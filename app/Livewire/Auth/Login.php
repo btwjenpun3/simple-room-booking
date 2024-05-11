@@ -7,12 +7,12 @@ use Livewire\Component;
 
 class Login extends Component
 {
-    public $email, $password;
+    public $username, $password;
 
     public function logins()
     {
         $credential = $this->validate([
-            'email' => 'required|email',
+            'username' => 'required',
             'password' => 'required'
         ]);
         try {
@@ -23,10 +23,9 @@ class Login extends Component
                 session()->regenerate();
                 return redirect()->route('booking.index', ['type' => 'C']);
             } else {
-                $this->dispatch('failed', 'Email / Password salah!');
+                $this->dispatch('failed', 'Username / Password salah!');
             }
         } catch (\Exception $e) {
-
         }
     }
 
