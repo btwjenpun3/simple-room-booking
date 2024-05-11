@@ -28,14 +28,7 @@
             font-feature-settings: "cv03", "cv04", "cv11";
         }
     </style>
-    <style>
-        .sticky-table {
-            position: sticky;
-            top: 0;
-        }
 
-        /* Menambahkan z-index lebih tinggi agar tetap muncul di atas header */
-    </style>
     @yield('css')
     @livewireStyles
 </head>
