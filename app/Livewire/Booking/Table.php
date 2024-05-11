@@ -11,9 +11,9 @@ class Table extends Component
 
     public $data = [];
 
-    public $roomsC = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', '10', 'C11', 'C12', 'C13', 'C14', 'C15'];
+    public $roomsC = ['C1', 'C2', 'C3', 'C4', 'C5', 'C6', 'C7', 'C8', 'C9', 'C10', 'C11', 'C12', 'C13', 'C14', 'C15'];
 
-    public $roomsM = ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12', 'M21', 'M22m', 'M23', 'M24', 'M25', 'M26', 'M27', 'M28', 'M29', 'M30', 'M31', 'M32', 'M33', 'M34', 'M35', 'M36'];
+    public $roomsM = ['M1', 'M2', 'M3', 'M4', 'M5', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12', 'M21', 'M22', 'M23', 'M24', 'M25', 'M26', 'M27', 'M28', 'M29', 'M30', 'M31', 'M32', 'M33', 'M34', 'M35', 'M36'];
 
 
     public function mount()

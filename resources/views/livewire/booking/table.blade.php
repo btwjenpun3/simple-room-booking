@@ -18,7 +18,8 @@
                                 <td>
                                     <input type="text" wire:model="data.{{ $i }}.{{ $room }}"
                                         wire:change="update({{ $i }}, '{{ $room }}')"
-                                        @if (isset($data[$i][$room])) style="background-color:green;color:white" @endif>
+                                        @if (isset($data[$i][$room])) style="background-color:green;color:white" @endif
+                                        placeholder="Kamar {{ $room }} Tanggal {{ $i }}">
                                 </td>
                             @endforeach
                         </tr>
