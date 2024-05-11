@@ -1,8 +1,8 @@
 <div>
     <div class="card">
-        <div class="table-respsonsive">
+        <div class="table-responsive">
             <table class="table table-sm table-vcenter table-hover table-bordered card-table">
-                <thead class="sticky-table">
+                <thead>
                     <tr>
                         <th class="fs-3"></th>
                         @foreach ($rooms as $room)
